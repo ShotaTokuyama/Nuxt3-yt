@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import type { Character } from "@/types/interfaces";
 
+const SITE_TITLE = "キャラクター追加";
+
+useHead({
+  title: SITE_TITLE,
+})
+
+definePageMeta({
+  layout: "character"
+});
+
 // ルータオブジェクトを取得
 const router = useRouter();
 
@@ -22,7 +32,6 @@ const onAdd = (): void => {
 </script>
 
 <template>
-  <h1>キャラクター設定</h1>
   <nav id="breadcrumbs">
     <ul>
       <li>
@@ -31,11 +40,11 @@ const onAdd = (): void => {
       <li>
         <NuxtLink :to="{ name: 'character-characterList' }">キャラクターリスト</NuxtLink>
       </li>
-      <li>キャラクター追加</li>
+      <li>{{ SITE_TITLE }}</li>
     </ul>
   </nav>
   <section>
-    <h2>キャラクター追加</h2>
+    <h2>{{ SITE_TITLE }}</h2>
     <p>情報を入力し、登録ボタンをクリックしてください。
     </p>
     <form v-on:submit.prevent="onAdd">

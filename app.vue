@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import type { Character } from "@/types/interfaces";
 
+const SITE_TITLE = "ワンピース";
+
+useHead({
+  title: SITE_TITLE,
+  titleTemplate: (titleChunk: string | undefined): string => {
+    return titleChunk != undefined ? `${titleChunk} | ${SITE_TITLE}` : SITE_TITLE;
+  }
+});
+
 useState<Map<number, Character>>(
   // ステート名
   "characterList",
@@ -14,13 +23,11 @@ useState<Map<number, Character>>(
   // characterListでデータの取り出しが可能。
 );
 </script>
+
 <template>
-  <header>
-    <h1>OnePiece</h1>
-  </header>
-  <main>
+  <NuxtLayout>
     <NuxtPage />
-  </main>
+  </NuxtLayout>
 </template>
 
 <style scoped>

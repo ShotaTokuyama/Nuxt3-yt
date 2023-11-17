@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import type { Character } from "@/types/interfaces";
 
+const SITE_TITLE = "キャラクター詳細情報";
+
+useHead({
+  title: SITE_TITLE,
+})
+
+definePageMeta({
+  layout: "character"
+});
+
 const route = useRoute();
 
 //  キャラクターリストをステートから取得
@@ -13,7 +23,6 @@ const character = computed((): Character => {
 </script>
 
 <template>
-  <h1>キャラクター設定</h1>
   <nav id="breadcrumbs">
     <ul>
       <li>
@@ -22,11 +31,11 @@ const character = computed((): Character => {
       <li>
         <NuxtLink :to="{ name: 'character-characterList' }">キャラクターリスト</NuxtLink>
       </li>
-      <li>キャラクター詳細情報</li>
+      <li>{{ SITE_TITLE }}</li>
     </ul>
   </nav>
   <section>
-    <h2>キャラクター詳細情報</h2>
+    <h2>{{ SITE_TITLE }}</h2>
     <table>
       <tr>
         <td>No:</td>
