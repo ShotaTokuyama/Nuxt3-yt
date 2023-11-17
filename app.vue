@@ -15,7 +15,12 @@ useState<Map<number, Character>>(
 );
 </script>
 <template>
-  <BaseSection />
+  <header>
+    <h1>OnePiece</h1>
+  </header>
+  <main>
+    <NuxtPage />
+  </main>
 </template>
 
 <style scoped>
